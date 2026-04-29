@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "next dev --port 3000",
     "build": "next build",
+    "pages:build": "next build && next-on-pages",
     "start": "next start --port 3000",
     "lint": "next lint",
     "typecheck": "tsc --noEmit"
@@ -18,10 +19,11 @@
     "next": "15.0.3",
     "next-intl": "^3.23.5",
     "next-sanity": "^9.8.21",
-    "react": "19.0.0-rc-69d4b800-20241021",
-    "react-dom": "19.0.0-rc-69d4b800-20241021"
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
   },
   "devDependencies": {
+    "@cloudflare/next-on-pages": "^1.13.8",
     "@tailwindcss/postcss": "^4.0.0-beta.4",
     "@types/node": "^22.7.5",
     "@types/react": "^18.3.11",
