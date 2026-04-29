@@ -12,6 +12,9 @@
 import { revalidatePath, revalidateTag } from 'next/cache'
 import { type NextRequest, NextResponse } from 'next/server'
 
+// Cloudflare Pages / Edge Runtime (required by next-on-pages)
+export const runtime = 'edge'
+
 export async function POST(req: NextRequest) {
   const secret = req.headers.get('x-sanity-secret')
   if (!secret || secret !== process.env.SANITY_REVALIDATE_SECRET) {

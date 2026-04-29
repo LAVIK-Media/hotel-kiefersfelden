@@ -12,6 +12,9 @@ import { CookieNotice } from '~/components/layout/CookieNotice'
 import { getSiteSettings } from '~/lib/content'
 import { jsonLdSiteWide } from '~/lib/seo'
 
+// Cloudflare Pages / Edge Runtime (required by next-on-pages)
+export const runtime = 'edge'
+
 // Statisches Rendering aller Locales
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }))
