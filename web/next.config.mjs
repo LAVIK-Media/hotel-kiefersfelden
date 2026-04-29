@@ -1,4 +1,8 @@
-import createNextIntlPlugin from 'next-intl/plugin'
+import nextIntlPlugin from 'next-intl/plugin'
+
+// next-intl/plugin is CJS. This keeps it working across ESM/CJS interop.
+const createNextIntlPlugin =
+  typeof nextIntlPlugin === 'function' ? nextIntlPlugin : nextIntlPlugin?.default
 
 const withNextIntl = createNextIntlPlugin('./src/i18n/request.ts')
 
