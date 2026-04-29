@@ -8,15 +8,6 @@ import { getRoomBySlug, getRooms, getSiteSettings } from '~/lib/content'
 import type { Locale } from '~/i18n/routing'
 import type { Metadata } from 'next'
 
-export async function generateStaticParams() {
-  // Beide Locales generieren
-  const [de, en] = await Promise.all([getRooms('de'), getRooms('en')])
-  return [
-    ...de.map((r) => ({ locale: 'de', slug: r.slug })),
-    ...en.map((r) => ({ locale: 'en', slug: r.slug })),
-  ]
-}
-
 export async function generateMetadata({
   params,
 }: {
