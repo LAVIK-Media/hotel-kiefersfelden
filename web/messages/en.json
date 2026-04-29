@@ -1,0 +1,124 @@
+{
+  "site": {
+    "name": "Hotel zur Post Kiefersfelden",
+    "tagline": "Where Bavarian hospitality is at home."
+  },
+  "nav": {
+    "home": "Home",
+    "hotel": "Hotel",
+    "rooms": "Rooms",
+    "restaurant": "Restaurant",
+    "menu": "Menu",
+    "summer": "Summer",
+    "winter": "Winter",
+    "experience": "Experience",
+    "directions": "Getting here",
+    "contact": "Contact",
+    "imprint": "Imprint",
+    "privacy": "Privacy",
+    "terms": "Terms",
+    "skipToContent": "Skip to main content",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu"
+  },
+  "actions": {
+    "bookNow": "Book directly",
+    "bookNowShort": "Book",
+    "callUs": "Call",
+    "writeUs": "Write",
+    "viewDetails": "Read more",
+    "viewMenu": "View menu",
+    "viewRoom": "Explore room",
+    "loadMap": "Load map",
+    "loadMapHint": "By clicking, you load content from Google Maps. Their privacy terms apply.",
+    "showAll": "Show all",
+    "back": "Back"
+  },
+  "home": {
+    "heroEyebrow": "Royal Bavarian post station since 1820",
+    "heroHeadline": "Servus.\nGlad you\nfound us.",
+    "heroSub": "A family-run inn at the Tyrolean border. Our own butchery. A parlour you’ll want to linger in.",
+    "leadEyebrow": "About",
+    "leadHeadline": "A house with two centuries of history – and a kitchen that started this morning at the butcher one floor below.",
+    "leadBody": "Christine and Andi Pfeiffer are the next generation in the family. 25 rooms, 80 beds, a parlour, a beer garden and a holiday house next door. Right by Kiefersfelden station, a five-minute walk to the Tyrolean border.",
+    "menuEyebrow": "On the menu today",
+    "menuFallback": "No daily menu posted right now. Have a look at our main menu.",
+    "roomsEyebrow": "Rooms & Stay",
+    "roomsHeadline": "25 rooms. One lift. No fuss.",
+    "roomsBody": "From a compact single to a family room for four. Stay longer and we’ll give you our standard rate – stay one night and you’re welcome too.",
+    "regionEyebrow": "Around Kiefersfelden",
+    "regionHeadline": "Kaiserreich. Wendelstein. Train station opposite.",
+    "regionBody": "Set off hiking in the morning without touching the car. In winter the trails lead toward Hocheck. If you like, Andi will take you through the village by carriage.",
+    "trustEyebrow": "Recommendation rate from our guests",
+    "trustBody": "Awarded on HolidayCheck every year since 2024."
+  },
+  "footer": {
+    "addressTitle": "Address",
+    "openingTitle": "Restaurant",
+    "openingFallback": "Opening hours – see menu page or call us.",
+    "newsletterTitle": "News",
+    "newsletterText": "Seasonal menus, the Schlachtfest week, asparagus season. We get in touch four times a year.",
+    "copyright": "© {year} Gasthof Hotel zur Post · Owner Andreas Pfeiffer"
+  },
+  "menuToday": {
+    "title": "Daily menu, {date}",
+    "weekTitle": "Weekly menu valid {from} – {until}",
+    "standardTitle": "Main menu",
+    "houseRecommendation": "House recommendation",
+    "vegetarian": "vegetarian",
+    "vegan": "vegan",
+    "allergensTitle": "Allergens",
+    "allergensFootnote": "Full allergen list on request."
+  },
+  "rooms": {
+    "from": "from",
+    "perNight": "per night",
+    "size": "{qm} m²",
+    "guests": "{count, plural, =1 {1 person} other {up to # guests}}",
+    "amenitiesTitle": "Amenities"
+  },
+  "directions": {
+    "byCar": "By car",
+    "byTrain": "By train",
+    "byPlane": "By plane",
+    "byCarText": "A93 Inntal motorway, exit Kiefersfelden. On-site parking.",
+    "byTrainText": "Right at Kiefersfelden station. Hourly service from Munich (90 min) and Innsbruck (40 min).",
+    "byPlaneText": "Munich (MUC) ~90 km, Salzburg (SZG) ~80 km, Innsbruck (INN) ~75 km."
+  },
+  "contact": {
+    "headline": "Contact",
+    "phone": "Phone",
+    "email": "Email",
+    "address": "Address",
+    "fax": "Fax",
+    "formIntro": "Drop us a line – we usually reply the same day.",
+    "fields": {
+      "name": "Name",
+      "email": "Email",
+      "phone": "Phone (optional)",
+      "arrival": "Arrival",
+      "departure": "Departure",
+      "guests": "Guests",
+      "message": "Message",
+      "submit": "Send enquiry",
+      "consent": "I have read the privacy policy and agree."
+    }
+  },
+  "weather": {
+    "title": "Mountain weather Kiefersfelden",
+    "loading": "Loading…",
+    "today": "Today",
+    "tomorrow": "Tomorrow",
+    "source": "Source: Open-Meteo (DWD)"
+  },
+  "cookie": {
+    "title": "We respect your privacy.",
+    "body": "This website only uses technically required storage. External content (maps, weather, booking) loads only after your click.",
+    "ok": "Got it"
+  },
+  "errors": {
+    "404Title": "Nothing here.",
+    "404Body": "This page doesn’t exist (any more). The home page might help.",
+    "404Back": "Back to home"
+  }
+}

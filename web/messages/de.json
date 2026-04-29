@@ -1,0 +1,124 @@
+{
+  "site": {
+    "name": "Hotel zur Post Kiefersfelden",
+    "tagline": "Wo Bayerische Gastlichkeit zuhause ist."
+  },
+  "nav": {
+    "home": "Start",
+    "hotel": "Hotel",
+    "rooms": "Zimmer",
+    "restaurant": "Restaurant",
+    "menu": "Speisekarte",
+    "summer": "Sommer",
+    "winter": "Winter",
+    "experience": "Erleben",
+    "directions": "Anfahrt",
+    "contact": "Kontakt",
+    "imprint": "Impressum",
+    "privacy": "Datenschutz",
+    "terms": "AGB",
+    "skipToContent": "Zum Hauptinhalt springen",
+    "openMenu": "Menü öffnen",
+    "closeMenu": "Menü schließen"
+  },
+  "actions": {
+    "bookNow": "Direkt buchen",
+    "bookNowShort": "Buchen",
+    "callUs": "Anrufen",
+    "writeUs": "Schreiben",
+    "viewDetails": "Mehr erfahren",
+    "viewMenu": "Speisekarte ansehen",
+    "viewRoom": "Zimmer entdecken",
+    "loadMap": "Karte laden",
+    "loadMapHint": "Mit dem Klick laden Sie Inhalte von Google Maps. Es gelten deren Datenschutzbestimmungen.",
+    "showAll": "Alle anzeigen",
+    "back": "Zurück"
+  },
+  "home": {
+    "heroEyebrow": "Königlich Bayerische Poststation seit 1820",
+    "heroHeadline": "Servus.\nSchön, dass Sie\nda sind.",
+    "heroSub": "Familiengeführter Gasthof an der Tiroler Grenze. Eigene Metzgerei. Eine Stube, in der man gerne sitzen bleibt.",
+    "leadEyebrow": "Über uns",
+    "leadHeadline": "Ein Haus mit zwei­hundert­jähriger Geschichte – und einer Küche, die heute Morgen beim Metzger ein Stockwerk tiefer angefangen hat.",
+    "leadBody": "Christine und Andi Pfeiffer führen den Gasthof in der Familie weiter. 25 Zimmer, 80 Betten, eine Stube, ein Biergarten und ein Ferienhaus nebenan. Direkt am Bahnhof Kiefersfelden, fünf Gehminuten zur Tiroler Grenze.",
+    "menuEyebrow": "Heute auf der Karte",
+    "menuFallback": "Aktuell ist keine Tageskarte hinterlegt. Werfen Sie einen Blick in unsere Hauskarte.",
+    "roomsEyebrow": "Zimmer & Aufenthalt",
+    "roomsHeadline": "25 Zimmer. Ein Lift. Kein Trubel.",
+    "roomsBody": "Vom kompakten Einzelzimmer bis zum Familienzimmer für vier. Wer länger bleibt, bekommt unseren Standardpreis – wer nur eine Nacht bleibt, ist auch willkommen.",
+    "regionEyebrow": "Rund um Kiefersfelden",
+    "regionHeadline": "Kaiserreich. Wendelstein. Bahnhof gegenüber.",
+    "regionBody": "Wandern Sie morgens los, ohne ins Auto zu steigen. Im Winter führen die Wege Richtung Hocheck. Wer mag, lässt sich von Andi mit der Kutsche durchs Dorf fahren.",
+    "trustEyebrow": "Empfehlungs­quote unserer Gäste",
+    "trustBody": "Auf HolidayCheck wird unser Haus seit 2024 jährlich ausgezeichnet."
+  },
+  "footer": {
+    "addressTitle": "Adresse",
+    "openingTitle": "Restaurant",
+    "openingFallback": "Öffnungszeiten – siehe Speisekarte oder telefonisch erfragen.",
+    "newsletterTitle": "Aktuelles",
+    "newsletterText": "Saison­karten, Schlachtfest­woche, Spargel­zeit. Wir melden uns vier Mal im Jahr.",
+    "copyright": "© {year} Gasthof Hotel zur Post · Inh. Andreas Pfeiffer"
+  },
+  "menuToday": {
+    "title": "Tageskarte vom {date}",
+    "weekTitle": "Wochenkarte gültig {from} – {until}",
+    "standardTitle": "Hauskarte",
+    "houseRecommendation": "Empfehlung des Hauses",
+    "vegetarian": "vegetarisch",
+    "vegan": "vegan",
+    "allergensTitle": "Allergene",
+    "allergensFootnote": "Vollständige Allergenliste auf Anfrage."
+  },
+  "rooms": {
+    "from": "ab",
+    "perNight": "pro Nacht",
+    "size": "{qm} m²",
+    "guests": "{count, plural, =1 {1 Person} other {bis # Personen}}",
+    "amenitiesTitle": "Ausstattung"
+  },
+  "directions": {
+    "byCar": "Mit dem Auto",
+    "byTrain": "Mit der Bahn",
+    "byPlane": "Mit dem Flugzeug",
+    "byCarText": "A93 Inntalautobahn, Ausfahrt Kiefersfelden. Parkplätze direkt am Haus.",
+    "byTrainText": "Direkt am Bahnhof Kiefersfelden. Stündliche Verbindung von München (90 min) und Innsbruck (40 min).",
+    "byPlaneText": "Flughafen München (MUC) ca. 90 km, Flughafen Salzburg (SZG) ca. 80 km, Flughafen Innsbruck (INN) ca. 75 km."
+  },
+  "contact": {
+    "headline": "Kontakt",
+    "phone": "Telefon",
+    "email": "E-Mail",
+    "address": "Adresse",
+    "fax": "Fax",
+    "formIntro": "Schreiben Sie uns – wir antworten in der Regel am selben Tag.",
+    "fields": {
+      "name": "Name",
+      "email": "E-Mail",
+      "phone": "Telefon (optional)",
+      "arrival": "Anreise",
+      "departure": "Abreise",
+      "guests": "Personen",
+      "message": "Nachricht",
+      "submit": "Anfrage senden",
+      "consent": "Ich habe die Datenschutzerklärung gelesen und bin einverstanden."
+    }
+  },
+  "weather": {
+    "title": "Berg­wetter Kiefersfelden",
+    "loading": "Wird geladen …",
+    "today": "Heute",
+    "tomorrow": "Morgen",
+    "source": "Quelle: Open-Meteo (DWD)"
+  },
+  "cookie": {
+    "title": "Wir respektieren Ihre Privatsphäre.",
+    "body": "Diese Website verwendet ausschließlich technisch notwendige Speicherinhalte. Externe Inhalte (Karte, Wetter, Buchung) laden wir erst nach Ihrem Klick.",
+    "ok": "Verstanden"
+  },
+  "errors": {
+    "404Title": "Hier ist nichts.",
+    "404Body": "Diese Seite gibt es nicht (mehr). Vielleicht hilft die Startseite weiter.",
+    "404Back": "Zur Startseite"
+  }
+}

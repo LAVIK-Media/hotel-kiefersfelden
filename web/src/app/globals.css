@@ -1,0 +1,244 @@
+/*
+ * ──────────────────────────────────────────────────────────────────
+ *  Hotel zur Post – Globale Stile + Design-Tokens
+ * ──────────────────────────────────────────────────────────────────
+ *
+ *  Tailwind v4: Konfiguration erfolgt über `@theme`-Block direkt in CSS.
+ *  Keine `tailwind.config.ts` notwendig.
+ *
+ *  Designsprache:
+ *   – Off-White-Basis, warme Materialien, alpine Akzente.
+ *   – Subtile Patterns + sanfte Gradients (kein „Tech“-Look).
+ *   – Akzent: Loden-Tannengrün + Alpenblau + Kupfer (Bayern/Österreich-Flair).
+ */
+
+@import "tailwindcss";
+
+@theme {
+  /* ── Farben ───────────────────────────────────────────────────── */
+
+  /* Basis (Papier) */
+  --color-paper:        #faf7f0;   /* warmes Off-White – Body-Hintergrund */
+  --color-paper-soft:   #f5f1e7;   /* leicht dunklere Sektion */
+  --color-paper-warm:   #efe9d9;   /* nochmal dunkler, „Almheu-Beige" */
+
+  /* Text */
+  --color-ink:          #1f1d1a;   /* warmes Anthrazit */
+  --color-ink-mute:     #545048;   /* Sekundärtext */
+  --color-ink-soft:     #8b8579;   /* Meta, Captions */
+
+  /* Akzent */
+  --color-loden:        #2f4538;   /* dunkles Loden-Tannengrün */
+  --color-loden-deep:   #1f3026;   /* hover, dunkler */
+  --color-loden-soft:   #586d61;   /* desaturiert */
+
+  /* Sekundär-Wärme */
+  --color-hay:          #c9b68e;   /* warmes Beige */
+  --color-hay-soft:     #e8ddc7;   /* heller */
+
+  /* Alpen-Akzente */
+  --color-alpine:       #2d5f77;   /* kühles Alpenblau */
+  --color-alpine-deep:  #214a5f;   /* hover */
+  --color-alpine-soft:  #6b97aa;   /* desaturiert */
+
+  /* Kupfer / Messing (Wirtshaus, Beschläge, Schilder) */
+  --color-copper:       #b46a3c;
+  --color-copper-deep:  #8f4f2c;
+  --color-copper-soft:  #d9a07a;
+
+  /* Funktional */
+  --color-line:         #d8d2c4;   /* Trennlinien (auf paper) */
+  --color-line-soft:    #ebe5d6;
+
+  /* ── Typografie ──────────────────────────────────────────────── */
+
+  --font-serif:  "Fraunces", "EB Garamond", Georgia, "Times New Roman", serif;
+  --font-sans:   "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+
+  --tracking-tightest:  -0.04em;
+  --tracking-tighter:   -0.025em;
+  --tracking-tight:     -0.015em;
+  --tracking-normal:     0;
+  --tracking-wide:       0.04em;
+  --tracking-wider:      0.08em;
+  --tracking-widest:     0.16em;
+
+  /* ── Layout ──────────────────────────────────────────────────── */
+
+  --container-prose:  68ch;
+  --container-narrow: 76rem;
+  --container-wide:   86rem;
+
+  /* ── Bewegung ────────────────────────────────────────────────── */
+
+  --ease-soft: cubic-bezier(0.32, 0.72, 0, 1);
+  --duration-fast: 200ms;
+  --duration-base: 320ms;
+  --duration-slow: 600ms;
+
+  /* ── Schatten (extrem zurückhaltend) ─────────────────────────── */
+
+  --shadow-soft: 0 1px 2px rgba(31, 29, 26, 0.05), 0 10px 26px -18px rgba(31, 29, 26, 0.12);
+  --shadow-lift: 0 2px 8px rgba(31, 29, 26, 0.08), 0 34px 70px -36px rgba(31, 29, 26, 0.26);
+
+  /* ── Radii ───────────────────────────────────────────────────── */
+  --radius-card: 1.25rem; /* 20px */
+  --radius-soft: 1rem;
+}
+
+/* ── Reset-Ergänzungen + Body-Defaults ─────────────────────────── */
+
+@layer base {
+  :root {
+    color-scheme: light;
+  }
+
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    background-color: var(--color-paper);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    line-height: 1.6;
+    font-feature-settings: "ss01", "cv11";
+  }
+
+  /* Headlines: Serif, mit echten optical-size-Werten */
+  h1, h2, h3, h4, .font-serif {
+    font-family: var(--font-serif);
+    font-weight: 400;
+    letter-spacing: var(--tracking-tight);
+    font-feature-settings: "ss01", "ss03";
+  }
+
+  h1 { font-size: clamp(2.5rem, 5vw + 1rem, 5rem); line-height: 1.04; }
+  h2 { font-size: clamp(2rem, 3vw + 1rem, 3.25rem); line-height: 1.1; }
+  h3 { font-size: clamp(1.5rem, 1.4vw + 1rem, 2rem); line-height: 1.2; }
+
+  /* Lead-Text */
+  .lead {
+    font-family: var(--font-serif);
+    font-weight: 300;
+    font-size: clamp(1.25rem, 0.7vw + 1rem, 1.625rem);
+    line-height: 1.5;
+    letter-spacing: var(--tracking-tight);
+    color: var(--color-ink-mute);
+  }
+
+  /* Selection */
+  ::selection {
+    background-color: var(--color-loden);
+    color: var(--color-paper);
+  }
+
+  /* Smooth scroll mit Respekt vor reduced motion */
+  @media (prefers-reduced-motion: no-preference) {
+    html { scroll-behavior: smooth; }
+  }
+
+  /* Fokus-Stil */
+  :focus-visible {
+    outline: 2px solid var(--color-loden);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  /* Bilder rendern fürs editorial Feeling immer mit warmen Tönen besser */
+  img {
+    color-scheme: light;
+  }
+}
+
+/* ── Eigene Utilities (sparsam) ─────────────────────────────────── */
+
+@layer utilities {
+  .text-balance { text-wrap: balance; }
+  .text-pretty  { text-wrap: pretty; }
+
+  /* Editorial-Untertitel: kleine Versalien-Kapitälchen */
+  .eyebrow {
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: var(--tracking-widest);
+    text-transform: uppercase;
+    color: var(--color-loden);
+  }
+
+  /* Container-Varianten */
+  .container-prose  { max-width: var(--container-prose); margin-inline: auto; padding-inline: 2rem; }
+  .container-narrow { max-width: var(--container-narrow); margin-inline: auto; padding-inline: 2rem; }
+  .container-wide   { max-width: var(--container-wide); margin-inline: auto; padding-inline: 2rem; }
+
+  @media (min-width: 768px) {
+    .container-prose, .container-narrow, .container-wide {
+      padding-inline: 3rem;
+    }
+  }
+
+  /* Reveal-Animation (sparsam genutzt) */
+  .reveal {
+    opacity: 0;
+    transform: translateY(8px);
+    animation: reveal 600ms var(--ease-soft) forwards;
+  }
+  .reveal-delay-1 { animation-delay: 80ms; }
+  .reveal-delay-2 { animation-delay: 160ms; }
+  .reveal-delay-3 { animation-delay: 240ms; }
+
+  @keyframes reveal {
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .reveal { animation: none; opacity: 1; transform: none; }
+  }
+
+  /* ── Visual Flair Utilities ───────────────────────────────────── */
+
+  /* Dezente Sektion-Hintergründe (Alpenhimmel + Papier) */
+  .bg-alpine-wash {
+    background:
+      radial-gradient(1200px 520px at 12% 0%, color-mix(in srgb, var(--color-alpine-soft) 28%, transparent) 0%, transparent 60%),
+      radial-gradient(1000px 480px at 88% 12%, color-mix(in srgb, var(--color-copper-soft) 22%, transparent) 0%, transparent 62%),
+      linear-gradient(to bottom, var(--color-paper) 0%, var(--color-paper-soft) 100%);
+  }
+
+  /* „Bavarian ribbon“: sehr subtiler Rauten-Streifen (blau/weiß) */
+  .bavarian-ribbon {
+    background:
+      linear-gradient(135deg,
+        #2b5fab 0% 25%,
+        #ffffff 25% 50%,
+        #2b5fab 50% 75%,
+        #ffffff 75% 100%
+      );
+    background-size: 16px 16px;
+    border-bottom: 1px solid rgba(31, 29, 26, 0.08);
+  }
+
+  /* Card-Surface für „Wow“ ohne Kitsch */
+  .surface-card {
+    border-radius: var(--radius-card);
+    border: 1px solid var(--color-line-soft);
+    background:
+      radial-gradient(900px 360px at 10% 0%, rgba(45, 95, 119, 0.10) 0%, transparent 60%),
+      radial-gradient(720px 280px at 92% 10%, rgba(180, 106, 60, 0.10) 0%, transparent 62%),
+      linear-gradient(to bottom, rgba(255,255,255,0.75), rgba(255,255,255,0.45));
+    box-shadow: var(--shadow-soft);
+    backdrop-filter: blur(6px);
+  }
+
+  .surface-card-hover {
+    transition: transform var(--duration-base) var(--ease-soft), box-shadow var(--duration-base) var(--ease-soft);
+  }
+  .surface-card-hover:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lift);
+  }
+}

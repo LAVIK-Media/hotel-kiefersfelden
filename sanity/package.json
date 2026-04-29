@@ -1,0 +1,43 @@
+{
+  "name": "hotel-zur-post-studio",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Sanity Studio für das Hotel zur Post Kiefersfelden",
+  "main": "package.json",
+  "license": "UNLICENSED",
+  "scripts": {
+    "dev": "sanity dev",
+    "start": "sanity start",
+    "build": "sanity build",
+    "deploy": "sanity deploy",
+    "deploy-graphql": "sanity graphql deploy",
+    "typegen": "sanity typegen generate",
+    "seed": "tsx seed/seed.ts",
+    "seed:dry": "tsx seed/seed.ts --dry-run"
+  },
+  "keywords": [
+    "sanity",
+    "hotel",
+    "kiefersfelden"
+  ],
+  "dependencies": {
+    "@sanity/icons": "^3.4.0",
+    "@sanity/image-url": "^1.0.2",
+    "@sanity/internationalized-array": "^3.0.2",
+    "@sanity/ui": "^2.8.9",
+    "@sanity/vision": "^3.62.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "sanity": "^3.62.0",
+    "styled-components": "^6.1.13"
+  },
+  "devDependencies": {
+    "@sanity/client": "^6.22.2",
+    "@sanity/types": "^3.62.0",
+    "@types/react": "^18.3.11",
+    "@types/styled-components": "^5.1.34",
+    "dotenv": "^16.4.5",
+    "tsx": "^4.19.1",
+    "typescript": "^5.6.2"
+  }
+}

@@ -1,0 +1,30 @@
+[
+  {
+    "src": "https://assets.jimstatic.com/s/img/cc/icons/pdf.png",
+    "pages": [
+      "https://www.hotel-kiefersfelden.de/start-deutsch/gut-essen/tageskarte-spezialit%C3%A4ten/"
+    ],
+    "alts": [
+      "Download"
+    ]
+  },
+  {
+    "src": "https://kachelmannwetter.com/images/widgets/kachelmannwetter.png",
+    "pages": [
+      "https://www.hotel-kiefersfelden.de/deutsch/fotos/das-wetter-bei-uns/",
+      "https://www.hotel-kiefersfelden.de/english/photos-links/weather-kiefersfelden/"
+    ],
+    "alts": [
+      "kachelmannwetter.com",
+      "kachelmannwetter.com"
+    ]
+  },
+  {
+    "src": "https://assets.jimstatic.com/s/img/web/module/video/video-play.svg",
+    "pages": [
+      "https://www.hotel-kiefersfelden.de/start-deutsch/fotos/",
+      "https://www.hotel-kiefersfelden.de/english/photos-links/"
+    ],
+    "alts": []
+  }
+]
