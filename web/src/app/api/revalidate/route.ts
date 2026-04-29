@@ -33,7 +33,7 @@ export async function POST(req: NextRequest) {
   revalidatePath('/[locale]', 'layout')
 
   // Type-spezifische Tags (sobald wir GROQ-Tags nutzen)
-  if (body._type) revalidateTag(body._type)
+  if (body._type) revalidateTag(body._type, 'default')
 
   return NextResponse.json({ ok: true, type: body._type ?? null, time: Date.now() })
 }
