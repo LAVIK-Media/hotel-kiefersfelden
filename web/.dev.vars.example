@@ -1,0 +1,8 @@
+# Kopie nach .dev.vars für lokales `wrangler dev` / Preview (nicht nach Git committen).
+NEXTJS_ENV=development
+
+# Öffentliche Site-URL (SSR: canonical, OG, JSON-LD)
+NEXT_PUBLIC_SITE_URL=https://your-demo.pages.dev
+
+# Optional: Sanity ISR Webhook – nur wenn Studio Webhooks auf /api/revalidate zeigt
+# SANITY_REVALIDATE_SECRET=

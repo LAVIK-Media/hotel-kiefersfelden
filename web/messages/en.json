@@ -17,6 +17,7 @@
     "imprint": "Imprint",
     "privacy": "Privacy",
     "terms": "Terms",
+    "brandBadge": "Inn · Hotel · since 1820 · Kiefersfelden",
     "skipToContent": "Skip to main content",
     "openMenu": "Open menu",
     "closeMenu": "Close menu"
@@ -51,6 +52,22 @@
     "regionBody": "Set off hiking in the morning without touching the car. In winter the trails lead toward Hocheck. If you like, Andi will take you through the village by carriage.",
     "trustEyebrow": "Recommendation rate from our guests",
     "trustBody": "Awarded on HolidayCheck every year since 2024."
+  },
+  "experienceHub": {
+    "metaDescription": "Hiking in summer and skiing in winter – ideas around Kiefersfelden between the Kaiser peaks and Wendelstein.",
+    "heroEyebrow": "Things to do",
+    "heroHeadline": "Summer\nor winter.\nAlways Bavaria next door.",
+    "heroSub": "From hiking boots to skis – choose what suits the season. Here we gather our favourite ideas for you.",
+    "introEyebrow": "Two seasons",
+    "introHeadline": "House suggestions for sunshine and snow",
+    "introBody": "In summer you can wander without touching the car; in winter you're minutes from Hocheck or cross-country trails. Both start practically at our front steps.",
+    "summerImgAlt": "Summer hiking with mountain views",
+    "summerCardTitle": "Summer",
+    "summerCardBody": "Trails, Wendelstein, Innsola pool, beer garden – concrete tips with photos.",
+    "winterImgAlt": "Snowy winter in Kiefersfelden",
+    "winterCardTitle": "Winter",
+    "winterCardBody": "Skiing at Hocheck, night slopes, XC from the station – then back into the cosy parlour.",
+    "cardCta": "See ideas →"
   },
   "footer": {
     "addressTitle": "Address",

@@ -1,0 +1,39 @@
+name: Web CI + Cloudflare build
+
+on:
+  push:
+    branches: [master, main]
+    paths:
+      - "web/**"
+      - ".github/workflows/web-ci.yml"
+  pull_request:
+    branches: [master, main]
+    paths:
+      - "web/**"
+
+defaults:
+  run:
+    working-directory: web
+
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+          cache-dependency-path: web/package-lock.json
+
+      - name: Install
+        run: npm ci
+
+      - name: Typecheck + Lint
+        run: npm run typecheck && npm run lint
+
+      - name: Cloudflare-compatible production bundle (OpenNext)
+        run: npm run cf:build

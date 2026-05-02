@@ -10,10 +10,12 @@ export function CookieNotice() {
   const [show, setShow] = useState(false)
 
   useEffect(() => {
-    if (typeof window === 'undefined') return
-    if (window.localStorage.getItem(KEY) !== 'ack') {
-      setShow(true)
-    }
+    queueMicrotask(() => {
+      if (typeof window === 'undefined') return
+      if (window.localStorage.getItem(KEY) !== 'ack') {
+        setShow(true)
+      }
+    })
   }, [])
 
   if (!show) return null

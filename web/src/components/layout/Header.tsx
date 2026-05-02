@@ -1,4 +1,3 @@
-import Link from 'next/link'
 import { getTranslations } from 'next-intl/server'
 import { LocaleSwitch } from './LocaleSwitch'
 import { MobileNav } from './MobileNav'
@@ -18,16 +17,16 @@ export async function Header({ locale }: Props) {
         {t('skipToContent')}
       </a>
 
-      <header className="sticky top-0 z-30 border-b border-[var(--color-line-soft)] bg-[var(--color-paper)]/88 backdrop-blur-md">
-        <div aria-hidden="true" className="bavarian-ribbon h-[5px] w-full opacity-90" />
-        <div className="container-wide flex h-16 items-center justify-between gap-4 md:h-20">
-          {/* Logo / Wortmarke */}
-          <IntlLink href="/" className="group inline-flex items-baseline gap-3">
-            <span className="font-serif text-xl tracking-tight md:text-2xl">
+      <header className="sticky top-0 z-30 border-b-[3px] border-[color-mix(in_srgb,var(--color-wirtshausholz-deep)_72%,var(--color-copper-deep))] bg-[color-mix(in_srgb,var(--color-paper)_94%,var(--color-paper-warm))]/96 backdrop-blur-md shadow-[0_2px_0_rgba(255,252,246,0.55)]">
+        <div aria-hidden="true" className="bavarian-ribbon h-[6px] w-full opacity-[0.98]" />
+        <div className="container-wide flex h-[4.25rem] items-center justify-between gap-4 md:h-[5.25rem]">
+          {/* Wortmarke: Hotelgasthof, nicht Startup-Landingpage */}
+          <IntlLink href="/" className="group flex max-w-[16rem] flex-col gap-0.5 sm:max-w-none">
+            <span className="font-serif text-xl leading-[1.1] tracking-tight text-[color-mix(in_srgb,var(--color-ink)_90%,var(--color-wirtshausholz-deep))] transition-colors md:text-[1.62rem]">
               Hotel zur Post
             </span>
-            <span className="hidden text-[0.65rem] uppercase tracking-[0.22em] text-[var(--color-ink-soft)] md:inline">
-              Kiefersfelden · 1820
+            <span className="text-[0.55rem] font-medium uppercase leading-tight tracking-[0.2em] text-[color-mix(in_srgb,var(--color-stube-ruby)_58%,var(--color-loden))] md:text-[0.61rem] md:tracking-[0.24em]">
+              {t('brandBadge')}
             </span>
           </IntlLink>
 
@@ -54,7 +53,7 @@ export async function Header({ locale }: Props) {
               href={settings.bookingUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="hidden rounded-full px-4 py-2 text-[0.85rem] tracking-tight text-[var(--color-paper)] shadow-[var(--shadow-soft)] transition-[box-shadow,filter,transform] duration-[var(--duration-base)] ease-[var(--ease-soft)] hover:shadow-[var(--shadow-lift)] hover:-translate-y-[1px] bg-[linear-gradient(135deg,var(--color-loden)_0%,var(--color-alpine)_60%,var(--color-loden-deep)_100%)] md:inline-block"
+              className="hidden rounded-full px-5 py-2.5 text-[0.82rem] font-medium tracking-[0.04em] text-[var(--color-paper)] shadow-[var(--shadow-soft)] ring-2 ring-[color-mix(in_srgb,var(--color-loewengold)_45%,transparent)] transition-[box-shadow,filter,transform] duration-[var(--duration-base)] ease-[var(--ease-soft)] hover:-translate-y-px hover:shadow-[var(--shadow-lift)] gasthof-btn-header md:inline-block"
             >
               {settings.bookingCtaLabel}
             </a>

@@ -1,4 +1,5 @@
 import type { ReactNode } from 'react'
+import { GasthofRule } from '~/components/ui/GasthofRule'
 import { cn } from '~/lib/cn'
 
 type Props = {
@@ -9,13 +10,23 @@ type Props = {
   className?: string
   /** Wenn `true`, wird die Headline kleiner gerendert (für Sub-Sektionen). */
   small?: boolean
+  /** Dekorative Stammtisch-Linie zwischen Eyebrow und Headline */
+  ornament?: boolean
 }
 
 /**
  * Editorialer Sektions-Auftakt: Vorzeichen, große Serif-Headline, optionaler Lead.
  * Ruhig, mit echtem Whitespace.
  */
-export function SectionIntro({ eyebrow, headline, body, align = 'start', className, small }: Props) {
+export function SectionIntro({
+  eyebrow,
+  headline,
+  body,
+  align = 'start',
+  className,
+  small,
+  ornament = true,
+}: Props) {
   return (
     <div
       className={cn(
@@ -24,7 +35,23 @@ export function SectionIntro({ eyebrow, headline, body, align = 'start', classNa
         className,
       )}
     >
-      {eyebrow && <p className="eyebrow mb-4">{eyebrow}</p>}
+      {eyebrow && (
+        <>
+          <p className={cn('eyebrow gasthof-eyebrow-kicker mb-5', align === 'center' && 'text-center')}>
+            {eyebrow}
+          </p>
+          {ornament && (
+            <GasthofRule
+              className={cn(
+                'mb-6',
+                align === 'center'
+                  ? 'mx-auto justify-center [&_.gasthof-rule-line]:w-14 [&_.gasthof-rule-line]:max-w-none [&_.gasthof-rule-line]:flex-none'
+                  : 'max-w-xs',
+              )}
+            />
+          )}
+        </>
+      )}
       <h2
         className={cn(
           'font-serif tracking-tight text-balance',

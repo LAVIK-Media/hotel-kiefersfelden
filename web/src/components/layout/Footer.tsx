@@ -1,4 +1,5 @@
 import { getTranslations } from 'next-intl/server'
+import { GasthofRule } from '~/components/ui/GasthofRule'
 import { Link as IntlLink } from '~/i18n/navigation'
 import { getSiteSettings } from '~/lib/content'
 import type { Locale } from '~/i18n/routing'
@@ -11,17 +12,18 @@ export async function Footer({ locale }: Props) {
   const tNav = await getTranslations({ locale, namespace: 'nav' })
 
   return (
-    <footer className="mt-32 border-t border-[var(--color-line)] bg-[var(--color-paper-soft)]">
-      <div aria-hidden="true" className="bavarian-ribbon h-[6px] w-full opacity-35" />
+    <footer className="relative overflow-hidden border-t-[3px] border-[color-mix(in_srgb,var(--color-wirtshausholz-deep)_85%,var(--color-copper-deep))] bg-[var(--color-paper-soft)] shadow-[inset_0_2px_0_rgba(255,252,246,0.45)]">
+      {/* Dezenter Bayern-Streifen (größere Kacheln als „strong“ – weniger Moiré/„verbackt“) */}
+      <div aria-hidden="true" className="bavarian-ribbon h-[5px] w-full opacity-90" />
       <div className="container-wide grid gap-12 py-16 md:grid-cols-12">
         {/* Brand */}
         <div className="md:col-span-4">
-          <p className="font-serif text-2xl leading-tight">
+          <p className="gasthof-footer-marke">{tNav('brandBadge')}</p>
+          <p className="font-serif text-[1.65rem] leading-tight tracking-tight text-[color-mix(in_srgb,var(--color-ink)_82%,var(--color-wirtshausholz-deep))] md:text-3xl">
             Hotel zur Post
-            <br />
-            <span className="text-[var(--color-ink-mute)]">Kiefersfelden</span>
           </p>
-          <p className="mt-4 max-w-[28ch] text-sm leading-relaxed text-[var(--color-ink-mute)]">
+          <GasthofRule className="my-5 max-w-[12rem]" />
+          <p className="max-w-[30ch] text-sm leading-relaxed text-[var(--color-ink-mute)]">
             {settings.tagline}
           </p>
         </div>
@@ -86,8 +88,8 @@ export async function Footer({ locale }: Props) {
         </div>
       </div>
 
-      {/* Legal stripe */}
-      <div className="border-t border-[var(--color-line)]">
+      {/* Legal stripe – wie dunkle Holzschiene unter der Stube */}
+      <div className="border-t border-[color-mix(in_srgb,var(--color-wirtshausholz-deep)_48%,var(--color-line))] bg-[color-mix(in_srgb,var(--color-wirtshausholz-deep)_12%,var(--color-paper-warm))]">
         <div className="container-wide flex flex-col gap-4 py-6 text-xs text-[var(--color-ink-soft)] md:flex-row md:items-center md:justify-between">
           <p>{t('copyright', { year: new Date().getFullYear() })}</p>
           <ul className="flex gap-6">

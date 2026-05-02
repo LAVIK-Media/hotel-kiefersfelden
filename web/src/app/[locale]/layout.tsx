@@ -12,9 +12,6 @@ import { CookieNotice } from '~/components/layout/CookieNotice'
 import { getSiteSettings } from '~/lib/content'
 import { jsonLdSiteWide } from '~/lib/seo'
 
-// Cloudflare Pages / Edge Runtime (required by next-on-pages)
-export const runtime = 'edge'
-
 export async function generateMetadata({
   params,
 }: {
@@ -81,7 +78,7 @@ export default async function LocaleLayout({
   return (
     <NextIntlClientProvider messages={messages} locale={locale}>
       <Header locale={locale as 'de' | 'en'} />
-      <main id="main" className="pb-32 md:pb-0">
+      <main id="main" className="relative pb-32 md:pb-0">
         {children}
       </main>
       <Footer locale={locale as 'de' | 'en'} />

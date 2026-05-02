@@ -1,10 +1,12 @@
 import nextIntlPlugin from 'next-intl/plugin'
+import { initOpenNextCloudflareForDev } from '@opennextjs/cloudflare'
 
 // next-intl/plugin is CJS. This keeps it working across ESM/CJS interop.
 const createNextIntlPlugin =
   typeof nextIntlPlugin === 'function' ? nextIntlPlugin : nextIntlPlugin?.default
 
-const withNextIntl = createNextIntlPlugin('./src/i18n/request.ts')
+const i18nRequestPath = './src/i18n/request.ts'
+const withNextIntl = createNextIntlPlugin(i18nRequestPath)
 
 /** @type {import('next').NextConfig} */
 const config = {
@@ -19,10 +21,26 @@ const config = {
     ],
   },
 
+  // Next.js 16: aliases live unter `turbopack`.
+  turbopack: {
+    resolveAlias: {
+      'next-intl/config': i18nRequestPath,
+    },
+  },
+
   experimental: {
-    // Reduziert Re-Compiles bei Tailwind-v4-Setups
     optimizePackageImports: ['framer-motion'],
   },
 }
 
-export default withNextIntl(config)
+const nextConfig = withNextIntl(config)
+
+if (nextConfig.experimental?.turbo) {
+  delete nextConfig.experimental.turbo
+}
+
+if (process.env.NODE_ENV !== 'production') {
+  initOpenNextCloudflareForDev()
+}
+
+export default nextConfig

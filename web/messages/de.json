@@ -17,6 +17,7 @@
     "imprint": "Impressum",
     "privacy": "Datenschutz",
     "terms": "AGB",
+    "brandBadge": "Gasthof · Hotel · seit 1820 · Kiefersfelden",
     "skipToContent": "Zum Hauptinhalt springen",
     "openMenu": "Menü öffnen",
     "closeMenu": "Menü schließen"
@@ -51,6 +52,22 @@
     "regionBody": "Wandern Sie morgens los, ohne ins Auto zu steigen. Im Winter führen die Wege Richtung Hocheck. Wer mag, lässt sich von Andi mit der Kutsche durchs Dorf fahren.",
     "trustEyebrow": "Empfehlungs­quote unserer Gäste",
     "trustBody": "Auf HolidayCheck wird unser Haus seit 2024 jährlich ausgezeichnet."
+  },
+  "experienceHub": {
+    "metaDescription": "Sommerwandern, Wintersport und Ausflüge – Tipps rund um Kiefersfelden zwischen Kaiser und Wendelstein.",
+    "heroEyebrow": "Erlebnisse",
+    "heroHeadline": "Sommerwie Winter.\nImmer Bayern\nvor der Tür.",
+    "heroSub": "Zwischen Wanderweg und Pistenausgang – wählen Sie, was zur Jahreszeit passt. Wir sammeln unsere Hausvorschläge für Sie.",
+    "introEyebrow": "Zwei Jahreszeiten",
+    "introHeadline": "Hausvorschläge für Sonne und Schnee",
+    "introBody": "Im Sommer sind Sie ohne Auto unterwegs, im Winter in wenigen Minuten am Hocheck oder auf der Loipe. Beides beginnt quasi vor der Hauswand.",
+    "summerImgAlt": "Sommerwandern vor den Bergen",
+    "summerCardTitle": "Sommer",
+    "summerCardBody": "Wanderungen, Wendelstein, Erlebnisbad Innsola, Biergarten – konkrete Tipps und Fotos.",
+    "winterImgAlt": "Winter in Kiefersfelden mit Schnee",
+    "winterCardTitle": "Winter",
+    "winterCardBody": "Skifahren Hocheck, Nachtläufe, Langlaufen vom Bahnhof – dann zurück in die Stube.",
+    "cardCta": "Tipps & Ideen →"
   },
   "footer": {
     "addressTitle": "Adresse",

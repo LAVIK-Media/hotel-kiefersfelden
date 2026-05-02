@@ -1,7 +1,7 @@
 # Hotel zur Post – Frontend (Next.js)
 
 Editorial-orientiertes Frontend für **hotel-kiefersfelden.de**.
-Tech: Next.js 15 App Router · TypeScript strict · Tailwind v4 · next-intl · next-sanity · Vercel.
+Tech: Next.js 16 App Router · TypeScript strict · Tailwind v4 · next-intl · next-sanity · **Cloudflare Workers** (@opennextjs/cloudflare).
 
 > Begleitende Discovery-Daten: `../discovery/`
 > CMS-Schemas: `../sanity/`
@@ -149,19 +149,24 @@ Sobald Sanity live ist: Seed lädt diese Bilder automatisch ins Sanity-
 Asset-CDN, das Frontend zieht sie von dort (`cdn.sanity.io` ist als
 `remotePattern` in `next.config.mjs` schon erlaubt).
 
-## Deploy auf Vercel
+## Deploy auf Cloudflare (Workers / Git)
+
+Die Produktions-Artefakte erzeugst du mit **OpenNext** (nicht mit `next start` allein):
 
 ```bash
-# einmalig
-vercel link
-
-# Environment-Variablen synchronisieren
-vercel env pull .env.production.local
-
-# Production-Deploy
-pnpm build
-vercel --prod
+cd web
+npm ci
+npm run cf:build
+npx wrangler deploy
 ```
+
+**GitHub ↔ Cloudflare:** Repository verbinden, **Root-Verzeichnis** `web`,
+**Build-Befehl** z. B. `npm ci && npm run cf:build`, danach **`wrangler deploy`**
+wie in der [Workers CI/CD](https://developers.cloudflare.com/workers/ci-cd/)-Konfiguration
+deines Projekts. Die Worker-Konfiguration liegt in `wrangler.jsonc`; Ausgabe: `.open-next/`.
+
+Production-Variablen im Dashboard setzen (mindestens `NEXT_PUBLIC_SITE_URL`;
+optional Sanity + `SANITY_REVALIDATE_SECRET` wie unten beim Webhook).
 
 Sanity-Webhook-Konfiguration (im Studio unter API → Webhooks):
 
@@ -178,9 +183,9 @@ Sanity-Webhook-Konfiguration (im Studio unter API → Webhooks):
 ## Quality-Gates
 
 ```bash
-pnpm typecheck       # TS strict, kein any
-pnpm lint            # eslint-config-next
-pnpm build           # vor Deploy
+npm run typecheck
+npm run lint
+npm run build        # Nur Next.js; für Cloudflare: npm run cf:build
 ```
 
 ## Phase-3-Folgearbeiten (TODO)

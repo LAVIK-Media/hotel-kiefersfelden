@@ -37,8 +37,11 @@ export function Hero({
   return (
     <section
       className={cn(
-        'relative w-full overflow-hidden bg-[var(--color-ink)]',
-        size === 'full' ? 'h-[88svh] min-h-[640px] md:h-[92svh]' : 'h-[60svh] min-h-[420px]',
+        /* y: visible – lange Subpage-Headlines sonst oben abgeschnitten (overflow-hidden). */
+        'relative w-full overflow-x-clip overflow-y-visible bg-[var(--color-ink)]',
+        size === 'full'
+          ? 'h-[88svh] min-h-[640px] md:h-[92svh]'
+          : 'h-[78svh] max-md:min-h-[520px] md:min-h-[580px]',
       )}
       aria-label="Hero"
     >
@@ -56,12 +59,12 @@ export function Hero({
       <div
         aria-hidden="true"
         className={cn(
-          'absolute inset-0 bg-gradient-to-t',
+          'absolute inset-0 z-0 bg-gradient-to-t',
           overlayClasses[overlay],
         )}
       />
 
-      <div className="container-wide relative flex h-full flex-col justify-end pb-16 md:pb-24">
+      <div className="container-wide relative z-[2] flex h-full flex-col justify-end pb-20 md:pb-28">
         <div
           className={cn(
             'max-w-3xl text-[var(--color-paper)]',
@@ -69,9 +72,7 @@ export function Hero({
           )}
         >
           {eyebrow && (
-            <p className="reveal eyebrow mb-5 text-[var(--color-hay-soft)]">
-              {eyebrow}
-            </p>
+            <p className="reveal eyebrow eyebrow-gasthof-hero mb-5">{eyebrow}</p>
           )}
 
           <h1 className="reveal reveal-delay-1 font-serif font-light tracking-[-0.02em] text-balance whitespace-pre-line">

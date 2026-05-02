@@ -17,9 +17,9 @@ export function MobileNav({ items, bookingUrl, bookingLabel, labels }: Props) {
   const [open, setOpen] = useState(false)
   const pathname = usePathname()
 
-  // Beim Routenwechsel automatisch schließen
+  // Beim Routenwechsel automatisch schließen (microtask vermeidet setState-sync-in-effect-Regel)
   useEffect(() => {
-    setOpen(false)
+    queueMicrotask(() => setOpen(false))
   }, [pathname])
 
   // Body-Scroll sperren wenn Menü offen
@@ -82,7 +82,7 @@ export function MobileNav({ items, bookingUrl, bookingLabel, labels }: Props) {
               href={bookingUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="rounded-full px-6 py-4 text-center text-base text-[var(--color-paper)] shadow-[var(--shadow-soft)] bg-[linear-gradient(135deg,var(--color-loden)_0%,var(--color-alpine)_60%,var(--color-loden-deep)_100%)]"
+              className="gasthof-btn-primary rounded-full px-6 py-4 text-center text-base font-medium tracking-wide text-[var(--color-paper)] shadow-[var(--shadow-soft)] ring-2 ring-[color-mix(in_srgb,var(--color-loewengold)_40%,transparent)]"
             >
               {bookingLabel}
             </a>

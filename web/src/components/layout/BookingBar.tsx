@@ -27,7 +27,7 @@ export async function BookingBar({ locale }: Props) {
           href={settings.bookingUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex-1 rounded-full py-3 text-center text-[0.95rem] text-[var(--color-paper)] shadow-[var(--shadow-soft)] bg-[linear-gradient(135deg,var(--color-loden)_0%,var(--color-alpine)_60%,var(--color-loden-deep)_100%)]"
+          className="gasthof-btn-primary flex-1 rounded-full py-3 text-center text-[0.95rem] font-medium tracking-wide text-[var(--color-paper)] shadow-[var(--shadow-soft)] ring-2 ring-[color-mix(in_srgb,var(--color-loewengold)_38%,transparent)]"
         >
           {settings.bookingCtaLabel}
         </a>

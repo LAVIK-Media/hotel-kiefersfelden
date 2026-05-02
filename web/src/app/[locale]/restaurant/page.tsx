@@ -49,7 +49,7 @@ export default async function RestaurantPage({
         overlay="strong"
       />
 
-      {/* USP – eigene Metzgerei */}
+      {/* USP – wie andere Unterseiten (extra Top-Padding erzeugte schlechteres „Hochscrollen“) */}
       <section className="container-narrow py-24 md:py-32">
         <div className="grid items-center gap-12 md:grid-cols-12 md:gap-16">
           <figure className="surface-card surface-card-hover overflow-hidden md:col-span-6">
@@ -93,7 +93,7 @@ export default async function RestaurantPage({
           <div className="mt-12 flex justify-center">
             <IntlLink
               href="/speisekarte"
-              className="inline-flex items-center gap-2 rounded-full px-6 py-3 text-sm text-[var(--color-paper)] shadow-[var(--shadow-soft)] bg-[linear-gradient(135deg,var(--color-loden)_0%,var(--color-alpine)_60%,var(--color-loden-deep)_100%)]"
+              className="gasthof-btn-primary inline-flex items-center gap-2 rounded-full px-6 py-3 text-sm font-medium tracking-wide text-[var(--color-paper)] shadow-[var(--shadow-soft)] ring-2 ring-[color-mix(in_srgb,var(--color-loewengold)_38%,transparent)]"
             >
               {tA('viewMenu')}
             </IntlLink>

@@ -4,12 +4,16 @@
   "private": true,
   "description": "Frontend für Hotel & Gasthof zur Post Kiefersfelden",
   "scripts": {
-    "dev": "next dev --port 3000",
     "build": "next build",
-    "pages:build": "next build && next-on-pages",
+    "dev": "next dev --port 3000",
+    "cf:build": "opennextjs-cloudflare build",
     "start": "next start --port 3000",
-    "lint": "next lint",
-    "typecheck": "tsc --noEmit"
+    "lint": "eslint . --max-warnings 0",
+    "typecheck": "tsc --noEmit",
+    "preview": "opennextjs-cloudflare build && opennextjs-cloudflare preview",
+    "deploy": "opennextjs-cloudflare build && opennextjs-cloudflare deploy",
+    "upload": "opennextjs-cloudflare build && opennextjs-cloudflare upload",
+    "cf-typegen": "wrangler types --env-interface CloudflareEnv cloudflare-env.d.ts"
   },
   "dependencies": {
     "@portabletext/react": "^3.1.0",
@@ -23,7 +27,7 @@
     "react-dom": "^18.3.1"
   },
   "devDependencies": {
-    "@cloudflare/next-on-pages": "^1.13.8",
+    "@opennextjs/cloudflare": "^1.19.5",
     "@tailwindcss/postcss": "^4.0.0-beta.4",
     "@types/node": "^22.7.5",
     "@types/react": "^18.3.11",
@@ -33,6 +37,8 @@
     "eslint-config-next": "16.2.4",
     "postcss": "^8.4.47",
     "tailwindcss": "^4.0.0-beta.4",
-    "typescript": "^5.6.3"
+    "typescript": "^5.6.3",
+    "wrangler": "^4.87.0",
+    "zod": "^4.4.2"
   }
 }

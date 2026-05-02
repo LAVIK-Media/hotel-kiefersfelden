@@ -8,6 +8,7 @@ import { RoomCard } from '~/components/ui/RoomCard'
 import { MenuToday } from '~/components/ui/MenuToday'
 import { OfferCard } from '~/components/ui/OfferCard'
 import { HolidayCheckBadge } from '~/components/widgets/HolidayCheckBadge'
+import { GasthofRule } from '~/components/ui/GasthofRule'
 
 import { getActiveMenu, getOffers, getRooms, getSiteSettings } from '~/lib/content'
 import type { Locale } from '~/i18n/routing'
@@ -46,7 +47,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: L
             href={settings.bookingUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 rounded-full px-7 py-3 text-[0.95rem] tracking-tight text-[var(--color-paper)] shadow-[var(--shadow-soft)] transition-[box-shadow,filter,transform] duration-[var(--duration-base)] ease-[var(--ease-soft)] hover:shadow-[var(--shadow-lift)] hover:-translate-y-[1px] bg-[linear-gradient(135deg,var(--color-loden)_0%,var(--color-alpine)_60%,var(--color-loden-deep)_100%)]"
+            className="gasthof-btn-primary inline-flex items-center gap-2 rounded-full px-7 py-3 text-[0.95rem] font-medium tracking-tight text-[var(--color-paper)] shadow-[var(--shadow-soft)] ring-2 ring-[color-mix(in_srgb,var(--color-loewengold)_40%,transparent)] transition-[box-shadow,filter,transform] duration-[var(--duration-base)] ease-[var(--ease-soft)] hover:-translate-y-px hover:shadow-[var(--shadow-lift)]"
           >
             {settings.bookingCtaLabel}
           </a>
@@ -200,14 +201,14 @@ export default async function HomePage({ params }: { params: Promise<{ locale: L
         </section>
       )}
 
-      {/* ─── HOLIDAYCHECK – ruhig als Trustleiste ─── */}
-      <section className="border-y border-[var(--color-line)] bg-[var(--color-paper-soft)]">
-        <div aria-hidden="true" className="bavarian-ribbon h-[6px] w-full opacity-35" />
+      {/* ─── HOLIDAYCHECK – ans Footer angebunden (kein eigener weißer Streifen darunter) ─── */}
+      <section className="relative border-t border-[var(--color-line)] bg-[var(--color-paper-soft)]">
         <div className="container-narrow py-16 md:py-20">
           <div className="grid items-center gap-10 md:grid-cols-12">
             <div className="md:col-span-7">
-              <p className="eyebrow">{t('trustEyebrow')}</p>
-              <p className="mt-3 max-w-md font-serif text-2xl tracking-tight md:text-3xl">
+              <p className="eyebrow gasthof-eyebrow-kicker">{t('trustEyebrow')}</p>
+              <GasthofRule className="mt-4 max-w-[14rem]" />
+              <p className="mt-5 max-w-md font-serif text-2xl tracking-tight md:text-3xl">
                 {t('trustBody')}
               </p>
             </div>

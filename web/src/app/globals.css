@@ -7,9 +7,9 @@
  *  Keine `tailwind.config.ts` notwendig.
  *
  *  Designsprache:
- *   – Off-White-Basis, warme Materialien, alpine Akzente.
- *   – Subtile Patterns + sanfte Gradients (kein „Tech“-Look).
- *   – Akzent: Loden-Tannengrün + Alpenblau + Kupfer (Bayern/Österreich-Flair).
+ *   – Warme Pergament-/Holzstäube-Töne („Stube“), kein kahles Weiß.
+ *   – Rustic Premium: Lodengrün, Tiefrot-Burgund (sparsam), Kupfer wie Beschläge.
+ *   – Dezente Lichtverläufe + subtile Grain-Lage (Gemütlichkeit, keine Kitsch-Verzierung).
  */
 
 @import "tailwindcss";
@@ -17,24 +17,28 @@
 @theme {
   /* ── Farben ───────────────────────────────────────────────────── */
 
-  /* Basis (Papier) */
-  --color-paper:        #faf7f0;   /* warmes Off-White – Body-Hintergrund */
-  --color-paper-soft:   #f5f1e7;   /* leicht dunklere Sektion */
-  --color-paper-warm:   #efe9d9;   /* nochmal dunkler, „Almheu-Beige" */
+  /* Basis (Pergament / Alm – wärmer als Reinst-Weiß) */
+  --color-paper:        #f3ebdd;   /* Hauptfläche, „Kalke“-Wand */
+  --color-paper-soft:   #e8dfcf;   /* Sektionen, Fußbereich */
+  --color-paper-warm:   #ddd2bc;   /* dunklere Bänder, Holzstäube-Ton */
 
   /* Text */
-  --color-ink:          #1f1d1a;   /* warmes Anthrazit */
-  --color-ink-mute:     #545048;   /* Sekundärtext */
-  --color-ink-soft:     #8b8579;   /* Meta, Captions */
+  --color-ink:          #1c1714;   /* sehr warmes Schwarzbraun */
+  --color-ink-mute:     #4f463d;   /* Sekundärtext */
+  --color-ink-soft:     #7d7266;   /* Meta, Captions */
 
   /* Akzent */
-  --color-loden:        #2f4538;   /* dunkles Loden-Tannengrün */
-  --color-loden-deep:   #1f3026;   /* hover, dunkler */
-  --color-loden-soft:   #586d61;   /* desaturiert */
+  --color-loden:        #2d3d32;   /* dunkles Loden nach unten gedämpft */
+  --color-loden-deep:   #18241c;
+  --color-loden-soft:   #5a695e;
+
+  /* Wirtshaus-Rot (Gemütlichkeit, sehr sparsam) */
+  --color-stube-ruby:       #722f37;
+  --color-stube-ruby-soft:  #9a454f;
 
   /* Sekundär-Wärme */
-  --color-hay:          #c9b68e;   /* warmes Beige */
-  --color-hay-soft:     #e8ddc7;   /* heller */
+  --color-hay:          #bfa87a;   /* dunkleres Strohgold */
+  --color-hay-soft:     #dcc9a8;   /* Stammtisch-Untergrund */
 
   /* Alpen-Akzente */
   --color-alpine:       #2d5f77;   /* kühles Alpenblau */
@@ -46,9 +50,15 @@
   --color-copper-deep:  #8f4f2c;
   --color-copper-soft:  #d9a07a;
 
+  /* Holz & Gold – klassischer Hotelgasthof an der Loipe */
+  --color-wirtshausholz:       #5c4032;
+  --color-wirtshausholz-deep:  #2a1912;
+  --color-loewengold:          #c6a02e;
+  --color-loewengold-soft:     #e8d18a;
+
   /* Funktional */
-  --color-line:         #d8d2c4;   /* Trennlinien (auf paper) */
-  --color-line-soft:    #ebe5d6;
+  --color-line:         color-mix(in srgb, var(--color-copper-deep) 16%, #c9bda8);
+  --color-line-soft:    color-mix(in srgb, var(--color-paper-warm) 42%, var(--color-paper));
 
   /* ── Typografie ──────────────────────────────────────────────── */
 
@@ -97,10 +107,17 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
+    /* Sticky-Header/Fokus: Inhalt beim Scroll nicht unter der NAV „klemmen“. */
+    scroll-padding-top: 5.5rem;
   }
 
   body {
     background-color: var(--color-paper);
+    background-image:
+      radial-gradient(ellipse 110% 50% at 50% -8%, color-mix(in srgb, var(--color-hay-soft) 55%, transparent) 0%, transparent 52%),
+      radial-gradient(900px 540px at 8% 24%, rgba(114, 47, 55, 0.045) 0%, transparent 55%),
+      radial-gradient(760px 480px at 94% 12%, rgba(45, 61, 50, 0.07) 0%, transparent 58%),
+      linear-gradient(to bottom, var(--color-paper) 0%, color-mix(in srgb, var(--color-paper-warm) 18%, var(--color-paper)) 92%);
     color: var(--color-ink);
     font-family: var(--font-sans);
     font-size: 1rem;
@@ -167,7 +184,21 @@
     font-weight: 500;
     letter-spacing: var(--tracking-widest);
     text-transform: uppercase;
-    color: var(--color-loden);
+    color: color-mix(in srgb, var(--color-stube-ruby) 32%, var(--color-loden));
+  }
+
+  /* Schild / Kicker wie am Eingang eines Landgasthofs */
+  .gasthof-eyebrow-kicker {
+    display: inline-block;
+    border: 1px solid color-mix(in srgb, var(--color-loewengold) 38%, var(--color-line));
+    border-radius: 2px;
+    padding: 0.45rem 0.75rem;
+    background: linear-gradient(
+      165deg,
+      color-mix(in srgb, var(--color-paper) 55%, rgba(255, 252, 246, 1)) 0%,
+      color-mix(in srgb, var(--color-paper-warm) 40%, transparent) 100%
+    );
+    box-shadow: inset 0 1px 0 rgba(255, 252, 246, 0.55), 0 1px 2px rgba(42, 25, 18, 0.06);
   }
 
   /* Container-Varianten */
@@ -204,8 +235,9 @@
   /* Dezente Sektion-Hintergründe (Alpenhimmel + Papier) */
   .bg-alpine-wash {
     background:
-      radial-gradient(1200px 520px at 12% 0%, color-mix(in srgb, var(--color-alpine-soft) 28%, transparent) 0%, transparent 60%),
-      radial-gradient(1000px 480px at 88% 12%, color-mix(in srgb, var(--color-copper-soft) 22%, transparent) 0%, transparent 62%),
+      radial-gradient(1200px 520px at 12% 0%, color-mix(in srgb, var(--color-alpine-soft) 32%, transparent) 0%, transparent 60%),
+      radial-gradient(1000px 480px at 88% 12%, color-mix(in srgb, var(--color-copper-soft) 28%, transparent) 0%, transparent 62%),
+      radial-gradient(800px 400px at 50% 100%, color-mix(in srgb, var(--color-hay) 20%, transparent) 0%, transparent 70%),
       linear-gradient(to bottom, var(--color-paper) 0%, var(--color-paper-soft) 100%);
   }
 
@@ -213,24 +245,90 @@
   .bavarian-ribbon {
     background:
       linear-gradient(135deg,
-        #2b5fab 0% 25%,
-        #ffffff 25% 50%,
-        #2b5fab 50% 75%,
-        #ffffff 75% 100%
+        #274d8f 0% 25%,
+        #f8f3ea 25% 50%,
+        #274d8f 50% 75%,
+        #f8f3ea 75% 100%
       );
-    background-size: 16px 16px;
-    border-bottom: 1px solid rgba(31, 29, 26, 0.08);
+    background-size: 14px 14px;
+    border-bottom: 1px solid color-mix(in srgb, var(--color-copper-deep) 25%, rgba(31, 26, 20, 0.12));
+  }
+
+  .gasthof-rule-row {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+  }
+
+  .gasthof-rule-line {
+    flex: 1;
+    height: 2px;
+    border-radius: 1px;
+    min-width: 2rem;
+    max-width: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      color-mix(in srgb, var(--color-loewengold) 55%, var(--color-copper-deep)) 22%,
+      color-mix(in srgb, var(--color-loewengold) 35%, var(--color-copper-deep)) 50%,
+      color-mix(in srgb, var(--color-loewengold) 55%, var(--color-copper-deep)) 78%,
+      transparent 100%
+    );
+    box-shadow: 0 1px 0 rgba(255, 252, 246, 0.42);
+  }
+
+  .eyebrow-gasthof-hero {
+    color: var(--color-hay-soft) !important;
+    letter-spacing: var(--tracking-widest);
+    text-shadow: 0 1px 2px rgba(12, 10, 9, 0.35);
+    border: 1px solid rgba(255, 244, 220, 0.34);
+    border-radius: 9999px;
+    padding: 0.4rem 0.95rem;
+    background: rgba(18, 12, 10, 0.32);
+    backdrop-filter: blur(10px);
+  }
+
+  .gasthof-footer-marke {
+    margin-bottom: 0.65rem;
+    display: inline-block;
+    border: 1px solid color-mix(in srgb, var(--color-loewengold) 32%, var(--color-line));
+    border-radius: 2px;
+    padding: 0.35rem 0.65rem;
+    font-family: var(--font-sans);
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: var(--tracking-wider);
+    text-transform: uppercase;
+    color: color-mix(in srgb, var(--color-stube-ruby) 40%, var(--color-loden));
+    background: color-mix(in srgb, var(--color-paper) 76%, transparent);
+    box-shadow: inset 0 1px 0 rgba(255, 252, 246, 0.5);
+  }
+
+  .gasthof-btn-primary,
+  .gasthof-btn-header {
+    background-image: linear-gradient(
+      135deg,
+      var(--color-loden-deep) 0%,
+      var(--color-loden) 32%,
+      var(--color-alpine-deep) 58%,
+      var(--color-loden-deep) 100%
+    ) !important;
+    border: 1px solid color-mix(in srgb, var(--color-loewengold-soft) 55%, var(--color-loewengold)) !important;
   }
 
   /* Card-Surface für „Wow“ ohne Kitsch */
   .surface-card {
     border-radius: var(--radius-card);
-    border: 1px solid var(--color-line-soft);
+    border: 2px solid color-mix(in srgb, var(--color-wirtshausholz-deep) 12%, color-mix(in srgb, var(--color-copper-deep) 25%, var(--color-line-soft)));
     background:
-      radial-gradient(900px 360px at 10% 0%, rgba(45, 95, 119, 0.10) 0%, transparent 60%),
-      radial-gradient(720px 280px at 92% 10%, rgba(180, 106, 60, 0.10) 0%, transparent 62%),
-      linear-gradient(to bottom, rgba(255,255,255,0.75), rgba(255,255,255,0.45));
-    box-shadow: var(--shadow-soft);
+      radial-gradient(900px 360px at 10% 0%, color-mix(in srgb, var(--color-alpine) 14%, transparent) 0%, transparent 60%),
+      radial-gradient(720px 280px at 92% 10%, color-mix(in srgb, var(--color-copper) 13%, transparent) 0%, transparent 62%),
+      linear-gradient(to bottom,
+        color-mix(in srgb, var(--color-paper) 88%, rgba(248,244,237,1)),
+        color-mix(in srgb, var(--color-paper-soft) 70%, transparent));
+    box-shadow:
+      var(--shadow-soft),
+      inset 0 1px 0 0 rgba(255, 252, 246, 0.45);
     backdrop-filter: blur(6px);
   }
 
