@@ -1,0 +1,57 @@
+# Deploy OpenNext Worker to Cloudflare. Dies läuft unabhängig von „Workers Builds“ im Dashboard.
+#
+# Secrets (GitHub → repo → Settings → Secrets and variables → Actions):
+#   CLOUDFLARE_API_TOKEN — API Token mit Workers Scripts Edit (siehe Cloudflare-Doku)
+#   CLOUDFLARE_ACCOUNT_ID — Account-ID (Dashboard rechts unter „Account ID“)
+#
+# Hinweis: Wenn ihr hier deployt und parallel noch Cloudflare Git eingerichtet habt:
+# dort nur „deploy“ deaktivieren oder Build-Befehl setzen, sonst gibt es weiter fehlgeschlagene Doppel-Läufe.
+
+name: Deploy Cloudflare Workers (OpenNext)
+
+on:
+  push:
+    branches: [master, main]
+    paths:
+      - "web/**"
+      - ".github/workflows/cf-deploy.yml"
+
+concurrency:
+  group: cf-workers-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+
+    defaults:
+      run:
+        working-directory: web
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+          cache-dependency-path: web/package-lock.json
+
+      - run: npm ci
+
+      # Gleiche Checks wie CI; ohne grün hier kein Deploy
+      - run: npm run typecheck && npm run lint
+
+      - run: npm run cf:build
+
+      - name: wrangler deploy
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          workingDirectory: web
+          packageManager: npm

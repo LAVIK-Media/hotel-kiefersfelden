@@ -151,6 +151,21 @@ Asset-CDN, das Frontend zieht sie von dort (`cdn.sanity.io` ist als
 
 ## Deploy auf Cloudflare (Workers / Git)
 
+### Wo der Fehler wirklich herkommt („Could not detect static files“)
+
+Das ist **kein Bug im Next.-Code.** In den Cloudflare-Logs steht dann nur **`Executing user deploy command: npx wrangler deploy`** – **ohne** vorheriges `npm ci` und **`npm run cf:build`**. Erst dann entstehen unter `web/.open-next/` die Worker-Datei und **`assets/`**, die `wrangler.jsonc` erwartet. Fehlt der Build (oder das Arbeitsverzeichnis ist nicht `web`), schlägt Wrangler mit genau dieser Meldung fehl.
+
+**Empfohlen (automatisch bei jedem Push):** Im Repo gibt es **GitHub Actions** (`.github/workflows/cf-deploy.yml`): `npm ci` → Check → `cf:build` → `wrangler deploy` im Ordner `web`. Dafür im GitHub-Repository unter **Settings → Secrets and variables → Actions** anlegen:
+
+| Secret | Inhalt |
+|--------|--------|
+| `CLOUDFLARE_API_TOKEN` | API-Token mit Berechtigung *Workers Scripts: Edit* u. a. ([Anleitung](https://developers.cloudflare.com/workers/wrangler/ci-cd/#api-token)) |
+| `CLOUDFLARE_ACCOUNT_ID` | Im Cloudflare-Dashboard auf der Account-Übersicht als **Account ID** |
+
+Ohne diese Secrets schlägt der Workflow fehl (erwartbar). Wenn ihr **nur** über GitHub deployt, könnt ihr im Cloudflare-Worker unter **Build** die **reine Git-Anbindung** abschalten oder dort denselben Build-Befehl setzen – sonst laufen weiter nutzlose „nur wrangler deploy“-Versuche parallel.
+
+---
+
 Die Produktions-Artefakte erzeugst du mit **OpenNext** (nicht mit `next start` allein):
 
 ```bash
