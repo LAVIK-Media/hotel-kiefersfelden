@@ -160,10 +160,15 @@ npm run cf:build
 npx wrangler deploy
 ```
 
-**GitHub ↔ Cloudflare:** Repository verbinden, **Root-Verzeichnis** `web`,
-**Build-Befehl** z. B. `npm ci && npm run cf:build`, danach **`wrangler deploy`**
-wie in der [Workers CI/CD](https://developers.cloudflare.com/workers/ci-cd/)-Konfiguration
-deines Projekts. Die Worker-Konfiguration liegt in `wrangler.jsonc`; Ausgabe: `.open-next/`.
+**Workers Builds im Dashboard:** *Worker öffnen* → **Einstellungen** → **Build** (siehe [Konfiguration](https://developers.cloudflare.com/workers/ci-cd/builds/configuration/)):
+
+| Einstellung | Pflichtwert für dieses Repo |
+|-------------|----------------------------|
+| **Root-Verzeichnis** | `web` (ohne Slash) — sonst findet Wrangler keine `wrangler.jsonc`, und ohne OpenNext gibt es keine `.open-next/assets`. |
+| **Build-Befehl** | `npm ci && npm run cf:build` — **NICHT leer lassen.** Ohne diesen Schritt schlägt `wrangler deploy` mit *„Could not detect a directory containing static files“* fehl. |
+| **Deploy-Befehl** | `npx wrangler deploy` (Standard) |
+
+*Nur eine Zeile möglich?* Dann im **Deploy-Befehl**: `npm ci && npm run cf:publish` (Script bündelt `cf:build` + `wrangler deploy`). Build-Befehl dann leer lassen nur, wenn bei eurer Pipeline wirklich **nur** dieser eine Befehl ausgeführt wird.
 
 Production-Variablen im Dashboard setzen (mindestens `NEXT_PUBLIC_SITE_URL`;
 optional Sanity + `SANITY_REVALIDATE_SECRET` wie unten beim Webhook).
